@@ -29,4 +29,9 @@ func main() {
 	lList.Add(30)
 	fmt.Println("len:", lList.Length())
 	lList.Traverse()
+
+	lList.Remove(30)
+	fmt.Println("len:", lList.Length())
+	lList.Traverse()
+
 }

@@ -38,6 +38,43 @@ func (l *LinkedList) Add(data int) {
 	l.length++
 }
 
+// Remove a data in the linkedlist - first meet
+func (l *LinkedList) Remove(data int) error {
+	if l.length == 0 {
+		return errNoData
+	}
+
+	cursor := l.head
+	if cursor.data == data {
+		targetNode := cursor
+		l.head = l.head.next
+		fmt.Println(targetNode)
+		targetNode = nil
+		l.length--
+		return nil
+	}
+
+	// not head
+	for cursor.next != nil {
+		if cursor.next.data == data {
+			targetNode := cursor.next
+			if cursor.next.next == nil {
+				// tail
+				cursor.next = nil
+				l.tail = cursor
+			} else {
+				cursor.next = cursor.next.next
+			}
+			fmt.Println(targetNode)
+			targetNode = nil
+			l.length--
+			break
+		}
+		cursor = cursor.next
+	}
+	return nil
+}
+
 // Traverse the linkedlist
 func (l LinkedList) Traverse() {
 	cursor := l.head
