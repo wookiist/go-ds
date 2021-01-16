@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/wookiist/go-ds/sort/selectionsort"
+	"github.com/wookiist/go-ds/sort/insertionsort"
 )
 
 func main() {
@@ -13,8 +13,8 @@ func main() {
 	defer w.Flush()
 	arr := []int{23, 4, 5, 1, -1, 3, 100, 55, 66, 45, 46, 47, 44}
 	arr2 := []int{1, 2, 3, 4, 5, 6, 7, 8}
-	selectionsort.SelectionSort(&arr)
+	insertionsort.InsertionSort(&arr)
 	fmt.Fprintln(w, arr)
-	selectionsort.SelectionSort(&arr2)
+	insertionsort.InsertionSort(&arr2)
 	fmt.Fprintln(w, arr2)
 }
