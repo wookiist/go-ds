@@ -11,6 +11,7 @@ var errNoData = errors.New("No data in the Linkedlist")
 type Node struct {
 	data int
 	next *Node
+	prev *Node
 }
 
 // LinkedList struct
@@ -28,10 +29,10 @@ func (l LinkedList) Length() int {
 // Add a data into the linkedlist
 func (l *LinkedList) Add(data int) {
 	if l.length == 0 {
-		l.head = &Node{data: data, next: nil}
+		l.head = &Node{data: data, next: nil, prev: nil}
 		l.tail = l.head
 	} else {
-		newNode := &Node{data: data, next: nil}
+		newNode := &Node{data: data, next: nil, prev: l.tail}
 		l.tail.next = newNode
 		l.tail = newNode
 	}
@@ -52,6 +53,15 @@ func (l *LinkedList) Remove(data int) error {
 		targetNode = nil
 		l.length--
 		return nil
+	}
+
+	for cursor != nil {
+		if cursor.data == data {
+			cursor.prev.next = cursor.next
+			cursor.next.prev = cursor.prev
+			cursor = nil
+		}
+		cursor = cursor.next
 	}
 
 	// not head

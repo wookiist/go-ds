@@ -1,3 +1,8 @@
+# BubbleSort with Go
+
+bubblesort는 현재 값과 바로 다음 값을 계속 비교해 나가며 현재 값이 더 큰 경우 다음 값과 자리 바꿈을 한다.
+
+```go
 package main
 
 import (
@@ -15,3 +20,4 @@ func main() {
 	bubblesort.BubbleSort(&arr)
 	fmt.Fprintln(w, arr)
 }
+```
