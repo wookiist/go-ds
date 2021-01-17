@@ -18,6 +18,14 @@ Update 2021년 01월 16일
 - 장점은 탐색의 속도를 개선할 수 있다는 점.
 - O(logN)  / Unbalanced Tree라면 O(n)
 
+## 순회
+### 전위 순회 : PreOrderTraverse
+전위 순회는 DLR (출력 후, 왼쪽으로 이동, 오른쪽으로 이동)
+### 중위 순회 : InOrderTraverse
+중위 순회는 LDR (왼쪽으로 이동 후, 출력, 오른쪽으로 이동)
+### 후위 순회 : PostOrderTraverse
+후위 순회는 LRD (왼쪽으로 이동 후, 오른쪽으로 이동, 출력)
+
 ## binarysearchtree code
 ```go
 package tree
