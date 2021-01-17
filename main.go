@@ -1,20 +1,53 @@
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"os"
+import "fmt"
 
-	"github.com/wookiist/go-ds/sort/insertionsort"
-)
+// Node type
+type Node struct {
+	key   int
+	left  *Node
+	right *Node
+}
+
+// Insert will add a node to the tree
+// the key to add should not be already in the tree
+func (n *Node) Insert(k int) {
+	if k < n.key {
+		// move left
+		if n.left == nil {
+			n.left = &Node{key: k}
+		} else {
+			n.left.Insert(k)
+		}
+	} else if k > n.key {
+		// move right
+		if n.right == nil {
+			n.right = &Node{key: k}
+		} else {
+			n.right.Insert(k)
+		}
+	}
+}
+
+// Search will take in a key value
+// and RETURN true if there is a node with that value
+func (n *Node) Search(k int) bool {
+	if n == nil {
+		return false
+	}
+	if n.key < k {
+		// move right
+		return n.right.Search(k)
+	} else if n.key > k {
+		// move left
+		return n.left.Search(k)
+	}
+	return true
+}
 
 func main() {
-	w := bufio.NewWriter(os.Stdout)
-	defer w.Flush()
-	arr := []int{23, 4, 5, 1, -1, 3, 100, 55, 66, 45, 46, 47, 44}
-	arr2 := []int{1, 2, 3, 4, 5, 6, 7, 8}
-	insertionsort.InsertionSort(&arr)
-	fmt.Fprintln(w, arr)
-	insertionsort.InsertionSort(&arr2)
-	fmt.Fprintln(w, arr2)
+	tree := &Node{key: 100}
+	tree.Insert(5)
+	fmt.Println(tree)
+	fmt.Println(tree.Search(5))
 }

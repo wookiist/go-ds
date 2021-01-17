@@ -16,3 +16,66 @@ Update 2021년 01월 16일
 ## 장점과 주요 용도
 - 주요 용도는 데이터 검색(탐색)
 - 장점은 탐색의 속도를 개선할 수 있다는 점.
+- O(logN)  / Unbalanced Tree라면 O(n)
+
+## binarysearchtree code
+```go
+package tree
+
+// Node type
+type Node struct {
+	data  int
+	left  *Node
+	right *Node
+}
+
+// Insert node into the Tree
+// the data to add should not be already in the tree
+func (n *Node) Insert(data int) {
+	if n.data > data {
+		// move left
+		if n.left == nil {
+			n.left = &Node{data: data}
+		} else {
+			n.left.Insert(data)
+		}
+	} else if n.data < data {
+		// move right
+		if n.right == nil {
+			n.right = &Node{data: data}
+		} else {
+			n.right.Insert(data)
+		}
+	}
+}
+
+// Search a node
+func (n *Node) Search(data int) bool {
+	if n == nil {
+		return false
+	}
+	if n.data > data {
+		// move left
+		return n.left.Search(data)
+	} else if n.data < data {
+		// move right
+		return n.right.Search(data)
+	}
+	return true
+}
+
+```
+
+## binarysearchtree main code
+```go
+package main
+
+import "fmt"
+
+func main() {
+	tree := &Node{key: 100}
+	tree.Insert(5)
+	fmt.Println(tree)
+	fmt.Println(tree.Search(5))
+}
+```
