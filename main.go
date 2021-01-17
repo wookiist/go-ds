@@ -1,53 +1,33 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-// Node type
-type Node struct {
-	key   int
-	left  *Node
-	right *Node
-}
-
-// Insert will add a node to the tree
-// the key to add should not be already in the tree
-func (n *Node) Insert(k int) {
-	if k < n.key {
-		// move left
-		if n.left == nil {
-			n.left = &Node{key: k}
-		} else {
-			n.left.Insert(k)
-		}
-	} else if k > n.key {
-		// move right
-		if n.right == nil {
-			n.right = &Node{key: k}
-		} else {
-			n.right.Insert(k)
-		}
-	}
-}
-
-// Search will take in a key value
-// and RETURN true if there is a node with that value
-func (n *Node) Search(k int) bool {
-	if n == nil {
-		return false
-	}
-	if n.key < k {
-		// move right
-		return n.right.Search(k)
-	} else if n.key > k {
-		// move left
-		return n.left.Search(k)
-	}
-	return true
-}
+	"github.com/wookiist/go-ds/tree"
+)
 
 func main() {
-	tree := &Node{key: 100}
-	tree.Insert(5)
-	fmt.Println(tree)
-	fmt.Println(tree.Search(5))
+	treeTest := &tree.Node{Data: 100}
+	treeTest.Insert(5)
+	treeTest.Insert(48)
+	treeTest.Insert(1)
+	treeTest.Insert(-1)
+	treeTest.Insert(99)
+	treeTest.Insert(57)
+	treeTest.Insert(66)
+	treeTest.Insert(88)
+	treeTest.Insert(24)
+	treeTest.Insert(35)
+	treeTest.Insert(27)
+	treeTest.Insert(28)
+	treeTest.Insert(95)
+	treeTest.Insert(17)
+	treeTest.Insert(12)
+	treeTest.Insert(72)
+	fmt.Println(treeTest)
+	treeTest.PreOrderTraverse()
+	fmt.Println()
+	treeTest.InOrderTraverse()
+	fmt.Println()
+	treeTest.PostOrderTraverse()
 }
