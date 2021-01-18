@@ -39,6 +39,13 @@ Update 2021년 01월 16일
 1. 삭제할 노드의 오른쪽 자식 중, 가장 작은 값을, 삭제할 노드의 Parent Node가 가리키도록 한다.
 2. 삭제할 노드의 왼쪽 자식 중, 가장 큰 값을 삭제할 Node의 Parent가 가리키도록 한다.
 
+- 삭제할 노드의 오른쪽 자식 선택
+- 오른쪽 자식의 가장 왼쪽에 있는 Node를 선택
+- 해당 Node를 삭제할 Node의 Parent Node의 왼쪽 Branch가 가리키게 함
+- 해당 Node의 왼쪽 Branch가 삭제할 Node의 왼쪽 Child Node를 가리키게 함
+- 해당 Node의 오른족 Branch가 삭제할 Ndoe의 오른쪽 Child Node를 가리키게 함.
+- 만약 
+
 ## binarysearchtree code
 ```go
 package tree
