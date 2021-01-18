@@ -28,9 +28,16 @@ Update 2021년 01월 16일
 
 ## 트리의 노드 삭제
 매우 복잡하므로 경우를 나누어 생각하는 것이 좋다.
-### Leaf Node 삭제
+### 1. Leaf Node 삭제
 - Leaf Node : Child Node가 없는 Node (Terminal Node라고도 한다.)
 - 삭제할 노드의 Parent가 삭제할 노드를 가리키지 않도록 한다.
+
+### 2. Child Node가 하나인 Node 삭제
+- 삭제할 노드의 Parent Node가 삭제할 노드의 Child Node를 가리키도록 한다.
+
+### 3. Child Node가 둘인 Node 삭제
+1. 삭제할 노드의 오른쪽 자식 중, 가장 작은 값을, 삭제할 노드의 Parent Node가 가리키도록 한다.
+2. 삭제할 노드의 왼쪽 자식 중, 가장 큰 값을 삭제할 Node의 Parent가 가리키도록 한다.
 
 ## binarysearchtree code
 ```go
