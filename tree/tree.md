@@ -26,6 +26,9 @@ Update 2021년 01월 16일
 ### 후위 순회 : PostOrderTraverse
 후위 순회는 LRD (왼쪽으로 이동 후, 오른쪽으로 이동, 출력)
 
+## 트리의 노드 삭제
+매우 복잡하므로 경우를 나누어 생각하는 것이 좋다.
+
 ## binarysearchtree code
 ```go
 package tree
