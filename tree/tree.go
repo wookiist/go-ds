@@ -73,3 +73,56 @@ func (n *Node) PostOrderTraverse() {
 	n.right.PostOrderTraverse()
 	fmt.Println(n.Data)
 }
+
+// Delete from tree // TEMP
+func (n *Node) Delete(d int) {
+	if !n.Search(d) {
+		return
+	}
+	if n.left != nil {
+		if n.left.Data == d {
+			if n.left.left == nil && n.left.right == nil { // leaf node
+				n.left = nil
+			} else if n.left.left == nil && n.left.right != nil {
+				n.left = n.left.right
+			} else if n.left.left != nil && n.left.right == nil {
+				n.left = n.left.left
+			} else if n.left.left != nil && n.left.right != nil {
+				// pass
+			}
+			return
+		} else if n.left.Data > d {
+			n.left.left.Delete(d)
+		} else if n.left.Data < d {
+			n.left.right.Delete(d)
+		}
+	} else if n.right != nil {
+		if n.right.Data == d {
+			if n.right.left == nil && n.right.right == nil { // leaf node
+				n.right = nil
+			} else if n.right.left == nil && n.right.right != nil {
+				n.right = n.right.right
+			} else if n.right.left != nil && n.right.right == nil {
+				n.right = n.right.left
+			} else if n.right.left != nil && n.right.right != nil {
+				// pass
+			}
+		} else if n.right.Data > d {
+			n.right.left.Delete(d)
+		} else if n.right.Data < d {
+			n.right.right.Delete(d)
+		}
+	}
+
+	if n.Data == d {
+		// Leaf Node
+		if n.left == nil && n.right == nil {
+			// parent의 left나 right를 삭제.
+		}
+	}
+	if n.Data > d {
+		// move left
+	} else if n.Data < d {
+		// move right
+	}
+}
