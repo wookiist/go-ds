@@ -28,6 +28,9 @@ Update 2021년 01월 16일
 
 ## 트리의 노드 삭제
 매우 복잡하므로 경우를 나누어 생각하는 것이 좋다.
+### Leaf Node 삭제
+- Leaf Node : Child Node가 없는 Node (Terminal Node라고도 한다.)
+- 삭제할 노드의 Parent가 삭제할 노드를 가리키지 않도록 한다.
 
 ## binarysearchtree code
 ```go
