@@ -13,4 +13,4 @@
 - 무게 제한이 k인 배낭에 최대의 가치를 가지도록 물건을 넣는 문제
     - 각 물건은 무게(w)와 가치(v)로 표현될 수 있음.
     - 물건은 쪼갤 수 있으므로 물건의 일부분이 배낭에 넣어질 수 있음. 그래서 Fractional Knapsack Problem이라고 부름.
-        
+        - Franctional Knapsack Problem의 반대로 물건을 쪼개서 넣을 수 없는 배낭 문제도 존재함 (0/1 Knapsack Problem으로 부름)
