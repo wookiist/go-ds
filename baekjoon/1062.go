@@ -20,7 +20,6 @@ func main() {
 	var N, K int
 	fmt.Fscanf(r, "%d %d\n", &N, &K)
 	words = make([]string, N)
-	visited = make([]bool, 26)
 	for i := range words {
 		words[i] = getString()
 	}
@@ -31,6 +30,7 @@ func main() {
 		fmt.Fprintln(w, N)
 		return
 	} else {
+		visited = make([]bool, 26)
 		visited['a'-'a'] = true
 		visited['n'-'a'] = true
 		visited['t'-'a'] = true
@@ -38,20 +38,6 @@ func main() {
 		visited['c'-'a'] = true
 		solve(K-5, 'a')
 		fmt.Fprintln(w, result)
-	}
-}
-
-func getString() string {
-	s, _ := r.ReadString('\n')
-	s = strings.TrimSuffix(s, "\n")
-	return s[4 : len(s)-4]
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	} else {
-		return b
 	}
 }
 
@@ -81,5 +67,19 @@ func solve(remain int, idx rune) {
 			solve(remain-1, i)
 			visited[i-'a'] = false
 		}
+	}
+}
+
+func getString() string {
+	s, _ := r.ReadString('\n')
+	s = strings.TrimSuffix(s, "\n")
+	return s[4 : len(s)-4]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	} else {
+		return b
 	}
 }
