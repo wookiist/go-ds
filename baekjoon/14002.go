@@ -36,18 +36,27 @@ func main() {
 	}
 	idx := maxElem(D)
 	fmt.Fprintln(w, D[idx])
-	R := make([]int, D[idx])
-	pIdx := idx
-	for i := 0; i < D[idx]; i++ {
-		R[i] = A[pIdx]
-		pIdx = P[pIdx]
-	}
-	for i := D[idx] - 1; i >= 0; i-- {
-		fmt.Fprintf(w, "%d ", R[i])
-	}
+	// R := make([]int, D[idx])
+	// pIdx := idx
+	// for i := 0; i < D[idx]; i++ {
+	// 	R[i] = A[pIdx]
+	// 	pIdx = P[pIdx]
+	// }
+	// for i := D[idx] - 1; i >= 0; i-- {
+	// 	fmt.Fprintf(w, "%d ", R[i])
+	// }
+	seq(idx)
 	fmt.Fprintln(w)
 }
 
+func seq(n int) {
+	if P[n] == 0 {
+		fmt.Fprintf(w, "%d ", A[n])
+		return
+	}
+	seq(P[n])
+	fmt.Fprintf(w, "%d ", A[n])
+}
 func getInts() []int {
 	s, _ := r.ReadString('\n')
 	s = strings.TrimSuffix(s, "\n")
