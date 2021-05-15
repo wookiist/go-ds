@@ -60,13 +60,3 @@ func scanInt() int {
 	n, _ := strconv.Atoi(sc.Text())
 	return n
 }
-
-func min(arr []int) int {
-	res := arr[0]
-	for i := range arr {
-		if res > arr[i] && arr[i] != -1 {
-			res = arr[i]
-		}
-	}
-	return res
-}
