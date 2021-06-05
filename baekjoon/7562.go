@@ -30,7 +30,7 @@ func init() {
 func main() {
 	defer w.Flush()
 	T := scanInt()
-	for ; T > 0; T-- {
+	for ; T > 0; T-- {z
 		L := scanInt()
 		visited = make([][]bool, L)
 		D = make([][]int, L)

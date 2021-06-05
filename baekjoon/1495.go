@@ -48,7 +48,7 @@ func main() {
 			result = i
 			isPossible = true
 		}
-	}
+	}b
 	if isPossible {
 		fmt.Fprintln(w, result)
 	} else {
