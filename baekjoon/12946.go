@@ -16,7 +16,6 @@ var (
 var (
 	N     int
 	G     [][]string
-	V     [][]bool
 	color [][]int
 	ans   int
 	dx    = [6]int{-1, 0, 1, 1, 0, -1}
@@ -32,13 +31,11 @@ func main() {
 	N = scanInt()
 	G = make([][]string, N+1)
 	G[0] = make([]string, N+1)
-	V = make([][]bool, N+1)
 	color = make([][]int, N+1)
 	for i := range G {
 		if i != 0 {
 			G[i] = scanGraph()
 		}
-		V[i] = make([]bool, N+1)
 		color[i] = make([]int, N+1)
 		for j := range color[i] {
 			color[i][j] = -1
